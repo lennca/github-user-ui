@@ -1,0 +1,27 @@
+title Search for user
+
+actor User
+participant Client UI
+participant Service API
+participant External API
+
+User->Client UI:enter input
+activate Client UI
+activate User
+User->Client UI:click search
+deactivateafter User
+
+Client UI->Service API: getUsers(input)
+activate Service API
+
+note over Service API,External API:query="q={input}+in:user"
+Service API->External API: GET /search/users?{query}
+activate External API
+External API-->Service API:response: array
+deactivate External API
+
+Service API-->Client UI:response: array
+deactivate Service API
+
+Client UI->Client UI:render response
+deactivate Client UI

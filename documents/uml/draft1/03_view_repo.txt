@@ -1,0 +1,40 @@
+title View specific repo
+
+actor User
+participant Client UI
+participant Service API
+participant External API
+
+User->Client UI:click on repo
+activate User
+deactivateafter User
+
+activate Client UI
+
+Client UI->>Service API: getRepo(owner, repo)
+activate Service API
+Client UI->>Service API: getCommits(owner, repo)
+Client UI->>Service API: getContributors(owner, repo)
+Client UI->>Service API: getReadMe(owner, repo)
+
+Service API->>External API: GET /repos/{owner}/{repo}
+activate External API
+Service API->>External API: GET /repos/{owner}/{repo}/commits
+Service API->>External API: GET /repos/{owner}/{repo}/contributors
+Service API->>External API: GET /repos/{owner}/{repo}/readme
+
+
+External API-->>Service API:response: object
+External API-->>Service API:response: array
+External API-->>Service API:response: array
+External API-->>Service API:response: object
+deactivate External API
+
+Service API-->>Client UI:response: object
+Service API-->>Client UI:response: array
+Service API-->>Client UI:response: array
+Service API-->>Client UI:response: object
+deactivate Service API
+
+Client UI->Client UI:render response
+deactivate Client UI

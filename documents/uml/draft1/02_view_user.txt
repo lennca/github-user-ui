@@ -1,0 +1,31 @@
+title View specific user
+
+actor User
+participant Client UI
+participant Service API
+participant External API
+
+User->Client UI:click on user
+activate User
+deactivateafter User
+
+activate Client UI
+
+Client UI->>Service API: getUser(username)
+activate Service API
+Client UI->>Service API: getUserRepos(username)
+
+Service API->>External API: GET /users/{username}
+activate External API
+Service API->>External API: GET /users/{username}/repos
+
+External API-->>Service API:response: object
+External API-->>Service API:response: array
+deactivate External API
+
+Service API-->>Client UI:response: object
+Service API-->>Client UI:response: array
+deactivate Service API
+
+Client UI->Client UI:render response
+deactivate Client UI
