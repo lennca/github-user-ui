@@ -1,11 +1,12 @@
 import React from 'react'
 import './App.css'
+import StartPage from './pages/StartPage'
 
 function App() {
   return (
-    <h1 className='text-3xl font-bold text-green-700 underline'>
-      Hello world!
-    </h1>
+    <div className='App bg-gray-900'>
+      <StartPage />
+    </div>
   )
 }
 

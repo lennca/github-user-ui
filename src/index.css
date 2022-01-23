@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body, #root, .App {
+  height: 100%;
+}
+
+.custom-github-button:focus {
+  box-shadow: 0 0 0 3px #00800040; /* green with opacity */
+}
+
+.custom-github-input:focus {
+  box-shadow: 0 0 0 3px #0c2d6b; /* green with opacity */
+  border-color: #1f6feb;
+}
