@@ -18,7 +18,7 @@ function UserRow({ user }: { user: IUser }) {
         <p className='text-sm font-medium text-gray-900'>{login}</p>
       </div>
       <div className='mr-4 flex-item'>
-        <div className='text-sm text-gray-500 '>{type}</div>
+        <p className='text-sm text-gray-500'>{type}</p>
       </div>
       <div className='mr-4 flex-item-20 text-right'>
         <a

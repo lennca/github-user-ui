@@ -24,14 +24,14 @@ function StartPage() {
   return (
     <div className='w-3/4 container mx-auto h-full flex flex-col items-center'>
       {/* image */}
-      <div className='w-full flex items-center flex-col w-3/4 mb-4'>
+      <div className='w-full flex items-center flex-col mb-4'>
         <img className='w-3/4' src={logo} alt='Logo cat' />
         <h1 className='text-4xl font-bold text-slate-100'>
           Github User Search
         </h1>
       </div>
       {/* input container */}
-      <div className='w-3/4 flex flex-row mb-4'>
+      <div className='w-3/4 flex mb-4'>
         {/* input */}
         <input
           type='text'
