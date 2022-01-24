@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html, body, #root, .App {
-  height: 100%;
+  min-height: 100vh;
 }
 
 .custom-github-button:focus {
@@ -13,4 +13,12 @@ html, body, #root, .App {
 .custom-github-input:focus {
   box-shadow: 0 0 0 3px #0c2d6b; /* green with opacity */
   border-color: #1f6feb;
+}
+
+.flex-item {
+  flex: 1 1 0px;
+}
+
+.flex-item-20 {
+  flex: 1 1 20%;
 }
