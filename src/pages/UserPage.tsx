@@ -4,13 +4,12 @@ import APIService from '../services/APIService'
 import IRepo from '../types/IRepo'
 import IUserInfo from '../types/IUserInfo'
 import {
-  CogIcon,
-  ExclamationCircleIcon,
   LocationMarkerIcon,
   LinkIcon,
   OfficeBuildingIcon,
   ChatAltIcon
 } from '@heroicons/react/outline'
+import RepoRow from '../components/RepoRow'
 
 function UserPage() {
   const [user, setUser] = useState<IUserInfo | undefined>(undefined)
@@ -39,7 +38,6 @@ function UserPage() {
       setRepos(values[1][0].data)
     }
 
-    /* /users/{username}/repos */
     fetchData()
   }, [])
 
@@ -58,7 +56,13 @@ function UserPage() {
           <p className='text-xl text-slate-400 font-semibold'>{user?.name}</p>
           <p className='text-xl text-slate-500'>{user?.login}</p>
           <p className='text-slate-400 mb-3'>{user?.bio}</p>
-          <a className='button rounded-sm bg-gray-800 hover:bg-gray-700 text-slate-400 px-2 py-1 text-xs border border-slate-600 mb-3 w-max' href={user?.html_url} target="_blank" rel="noreferrer">Github Profile</a>
+          <a
+            className='button rounded-sm bg-gray-800 hover:bg-gray-700 text-slate-400 px-2 py-1 text-xs border border-slate-600 mb-3 w-max'
+            href={user?.html_url}
+            target='_blank'
+            rel='noreferrer'>
+            Github Profile
+          </a>
           <div className='flex items-center mb-1'>
             <OfficeBuildingIcon className='h-4 w-4 mr-1' />
             <p className='text-xs text-slate-400'>{user?.company}Company</p>
@@ -69,64 +73,23 @@ function UserPage() {
           </div>
           <div className='flex items-center mb-1'>
             <LinkIcon className='h-4 w-4 mr-1' />
-            <p className='text-xs text-slate-400'>{user?.blog} https://google.com</p>
+            <p className='text-xs text-slate-400'>
+              {user?.blog} https://google.com
+            </p>
           </div>
           <div className='flex items-center mb-1'>
             <ChatAltIcon className='h-4 w-4 mr-1' />
-            <p className='text-xs text-slate-400'>{user?.twitter_username}Twitter username</p>
+            <p className='text-xs text-slate-400'>
+              {user?.twitter_username}Twitter username
+            </p>
           </div>
         </div>
 
         {/* right - repos */}
         <div className='w-2/3 flex flex-col'>
-          {repos.map((repo: IRepo) => {
-            return (
-              <div
-                key={repo?.html_url}
-                className='flex flex-col px-3 py-4 border-b border-gray-700'>
-                <div className='flex justify-between mb-1'>
-                  <a
-                    href={repo?.html_url}
-                    target='_blank'
-                    className='text-slate-300 hover:text-slate-200 font-bold'
-                    rel='noreferrer'>
-                    {repo?.name}
-                  </a>
-                  <span className='px-2 flex justify-center items-center text-xs rounded-full bg-green-100 text-green-800'>
-                    {repo.license ? `${repo.license.name}` : 'none'}
-                  </span>
-                </div>
-
-                <div className='flex justify-between items-center'>
-                  <div className='flex'>
-                    {repo.language && (
-                      <div className='flex mr-3 items-center'>
-                        <CogIcon className='h-4 w-4 text-slate-500 mr-1' />
-                        <p className='text-xs text-slate-300'>
-                          {repo?.language}
-                        </p>
-                      </div>
-                    )}
-                    <div className='flex mr-3 items-center'>
-                      <ExclamationCircleIcon className='text-yellow-600 h-4 w-4 mr-1' />
-                      <p className='text-xs text-slate-300'>
-                        {repo?.open_issues}
-                      </p>
-                    </div>
-                  </div>
-                  <p className='text-xs text-slate-300'>
-                    Updated {repo?.updated_at.slice(0, 10)}
-                  </p>
-                </div>
-              </div>
-            )
-          })}
-          {/* repo - row */}
-          {/* name */}
-          {/* language */}
-          {/* issues */}
-          {/* license */}
-          {/* updated at */}
+          {repos.map((repo: IRepo) => (
+            <RepoRow repo={repo} key={repo.id} />
+          ))}
         </div>
       </div>
     </div>

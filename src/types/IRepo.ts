@@ -4,7 +4,8 @@ interface IRepo {
   name: string,
   open_issues: number, //open_issues_count
   updated_at: string,
-  license: any | null
+  license: any | null,
+  id: number
 }
 
 export default IRepo
