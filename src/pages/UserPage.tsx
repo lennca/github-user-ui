@@ -3,13 +3,9 @@ import { useParams } from 'react-router-dom'
 import APIService from '../services/APIService'
 import IRepo from '../types/IRepo'
 import IUserInfo from '../types/IUserInfo'
-import {
-  LocationMarkerIcon,
-  LinkIcon,
-  OfficeBuildingIcon,
-  ChatAltIcon
-} from '@heroicons/react/outline'
+import { LocationMarkerIcon, LinkIcon, OfficeBuildingIcon, ChatAltIcon } from '@heroicons/react/outline'
 import RepoRow from '../components/RepoRow'
+import InfoRow from '../components/InfoRow'
 
 function UserPage() {
   const [user, setUser] = useState<IUserInfo | undefined>(undefined)
@@ -20,16 +16,8 @@ function UserPage() {
     const fetchData = async () => {
       if (!username) return
       //const [response, error]: any = await APIService.findByUsername(username)
-      const values = await Promise.all([
-        APIService.findByUsername(username),
-        APIService.findAllReposByUser(username)
-      ])
-      if (
-        values[0][1] ||
-        values[1][1] ||
-        values[0][0] == null ||
-        values[1][0] == null
-      ) {
+      const values = await Promise.all([APIService.findByUsername(username), APIService.findAllReposByUser(username)])
+      if (values[0][1] || values[1][1] || values[0][0] == null || values[1][0] == null) {
         const error = values[0][1] || values[1][1]
         console.log(error)
         return
@@ -63,26 +51,10 @@ function UserPage() {
             rel='noreferrer'>
             Github Profile
           </a>
-          <div className='flex items-center mb-1'>
-            <OfficeBuildingIcon className='h-4 w-4 mr-1' />
-            <p className='text-xs text-slate-400'>{user?.company}Company</p>
-          </div>
-          <div className='flex items-center mb-1'>
-            <LocationMarkerIcon className='h-4 w-4 mr-1' />
-            <p className='text-xs text-slate-400'>{user?.location}</p>
-          </div>
-          <div className='flex items-center mb-1'>
-            <LinkIcon className='h-4 w-4 mr-1' />
-            <p className='text-xs text-slate-400'>
-              {user?.blog} https://google.com
-            </p>
-          </div>
-          <div className='flex items-center mb-1'>
-            <ChatAltIcon className='h-4 w-4 mr-1' />
-            <p className='text-xs text-slate-400'>
-              {user?.twitter_username}Twitter username
-            </p>
-          </div>
+          <InfoRow text={user?.company || 'Company'} Element={OfficeBuildingIcon} />
+          <InfoRow text={user?.location || 'Location'} Element={LocationMarkerIcon} />
+          <InfoRow text={user?.blog || 'https://google.com'} Element={LinkIcon} />
+          <InfoRow text={user?.twitter_username || 'Twitter username'} Element={ChatAltIcon} />
         </div>
 
         {/* right - repos */}

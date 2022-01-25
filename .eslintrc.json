@@ -19,7 +19,8 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "max-len": ["warning", {"code": 120}]
   },
   "settings": {
     "react": {
