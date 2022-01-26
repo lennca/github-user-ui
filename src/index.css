@@ -23,18 +23,40 @@ html, body, #root, .App {
   flex: 1 1 20%;
 }
 
+.github-btn-sec {
+  border: 1px solid rgb(55, 59, 66);
+  border-radius: 6px;
+  @apply bg-github-btn_sec text-github-primary;
+}
+
+.github-btn-sec:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+  transition-duration: .1s;
+}
+
+.github-input {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  @apply bg-github-bg text-github-primary;
+}
+
+.github-input:hover {
+  border-color: #1f6feb;
+  outline: none;
+  box-shadow: 0 0 0 3px #0c2d6b;
+}
+
 /* 
 background: #0d1117
-
-input = background: #0d1117, text-color: #c9d1d9(?), border: 1px solid #30363d, radius: 6px
-input:focus = border-color:#1f6feb, outline: none, box-shadow: 0 0 0 3px #0c2d6b
-
 text primary #c9d1d9
 text secondary #8b949e
 
 button green #238636
 button green:hover #2ea043
 button text-color white!
+
+---
 
 border-for rows: border-bottom: 1px solid #30363d
 row-padding: 24px top bottom
