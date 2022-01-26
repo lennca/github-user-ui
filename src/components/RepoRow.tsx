@@ -8,12 +8,12 @@ function RepoRow({ repo }: { repo: IRepo }) {
   return (
     <div
       key={html_url}
-      className='flex flex-col px-3 py-4 border-b border-gray-700'>
+      className='flex flex-col px-3 py-4 border-b border-github-border'>
       <div className='flex justify-between mb-1'>
         <a
           href={html_url}
           target='_blank'
-          className='text-slate-300 hover:text-slate-200 font-bold text-lg'
+          className='text-github-secondary hover:text-github-primary font-bold text-lg'
           rel='noreferrer'>
           {name}
         </a>
@@ -27,15 +27,15 @@ function RepoRow({ repo }: { repo: IRepo }) {
           {language && (
             <div className='flex mr-3 items-center'>
               <CogIcon className='h-4 w-4 text-slate-500 mr-1' />
-              <p className='text-xs text-slate-300'>{language}</p>
+              <p className='text-xs text-github-secondary'>{language}</p>
             </div>
           )}
           <div className='flex mr-3 items-center'>
             <ExclamationCircleIcon className='text-yellow-600 h-4 w-4 mr-1' />
-            <p className='text-xs text-slate-300'>{open_issues}</p>
+            <p className='text-xs text-github-secondary'>{open_issues}</p>
           </div>
         </div>
-        <p className='text-xs text-slate-300'>
+        <p className='text-xs text-github-secondary'>
           Updated {updated_at.slice(0, 10)}
         </p>
       </div>

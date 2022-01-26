@@ -6,7 +6,7 @@ import UserPage from './pages/UserPage'
 
 function App() {
   return (
-    <div className='App bg-gray-900'>
+    <div className='App bg-github-bg'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<StartPage />} />

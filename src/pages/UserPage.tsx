@@ -32,20 +32,21 @@ function UserPage() {
   return (
     <div className='w-full container mx-auto h-full flex flex-col items-center'>
       {/* header */}
-      <div className='w-full border-b-2 border-gray-700 flex py-3'>
-        <p className='text-2xl text-slate-200 w-1/3'>Profile</p>
-        <p className='text-2xl text-slate-200 w-2/3'>Repositories</p>
+      <div className='w-full border-b border-github-border flex py-4'>
+        <p className='text-4xl text-github-primary w-1/3'>Profile</p>
+        <p className='text-4xl text-github-primary w-2/3'>Repositories [{repos.length > 0 ? repos.length : ''}]</p>
       </div>
       {/* container */}
       <div className='w-full flex py-3'>
         {/* left - profile */}
         <div className='w-1/3 flex flex-col'>
           <img className='rounded-full w-4/5' src={user?.avatar_url} />
-          <p className='text-2xl text-slate-400 font-semibold'>{user?.name}</p>
-          <p className='text-xl text-slate-500'>{user?.login}</p>
-          <p className='text-slate-400 mb-3'>{user?.bio}</p>
+          <p className='text-3xl text-github-primary font-semibold'>{user?.name}</p>
+          <p className='text-xl text-github-secondary mb-3'>{user?.login}</p>
+          <p className='text-github-primary mb-3'>{user?.bio}</p>
+          {/* div? */}
           <a
-            className='rounded-sm bg-gray-800 hover:bg-gray-700 text-slate-400 px-2 py-1 border border-slate-600 mb-3 w-max'
+            className='py-1 mb-3 github-btn-sec text-sm w-3/4 text-center'
             href={user?.html_url}
             target='_blank'
             rel='noreferrer'>

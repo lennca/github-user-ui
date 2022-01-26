@@ -11,13 +11,17 @@ function InfoRow({ text, Element, link }: Props) {
 
   return (
     <div className='flex items-center mb-1'>
-      <Element className='h-4 w-4 mr-1 text-slate-400' />
+      <Element className='h-4 w-4 mr-1 text-github-primary' />
       {link ? (
-        <a className='text-slate-400 hover:text-slate-200 cursor-pointer' href={text} target='_blank' rel='noreferrer'>
+        <a
+          className='text-github-primary hover:text-github-secondary cursor-pointer'
+          href={text}
+          target='_blank'
+          rel='noreferrer'>
           {text}
         </a>
       ) : (
-        <p className='text-slate-400'>{text}</p>
+        <p className='text-github-primary'>{text}</p>
       )}
     </div>
   )
