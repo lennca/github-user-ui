@@ -41,20 +41,20 @@ function UserPage() {
         {/* left - profile */}
         <div className='w-1/3 flex flex-col'>
           <img className='rounded-full w-4/5' src={user?.avatar_url} />
-          <p className='text-xl text-slate-400 font-semibold'>{user?.name}</p>
+          <p className='text-2xl text-slate-400 font-semibold'>{user?.name}</p>
           <p className='text-xl text-slate-500'>{user?.login}</p>
           <p className='text-slate-400 mb-3'>{user?.bio}</p>
           <a
-            className='button rounded-sm bg-gray-800 hover:bg-gray-700 text-slate-400 px-2 py-1 text-xs border border-slate-600 mb-3 w-max'
+            className='rounded-sm bg-gray-800 hover:bg-gray-700 text-slate-400 px-2 py-1 border border-slate-600 mb-3 w-max'
             href={user?.html_url}
             target='_blank'
             rel='noreferrer'>
             Github Profile
           </a>
-          <InfoRow text={user?.company || 'Company'} Element={OfficeBuildingIcon} />
-          <InfoRow text={user?.location || 'Location'} Element={LocationMarkerIcon} />
-          <InfoRow text={user?.blog || 'https://google.com'} Element={LinkIcon} />
-          <InfoRow text={user?.twitter_username || 'Twitter username'} Element={ChatAltIcon} />
+          <InfoRow text={user?.company || 'Company'} Element={OfficeBuildingIcon} link={false} />
+          <InfoRow text={user?.location || 'Location'} Element={LocationMarkerIcon} link={false} />
+          <InfoRow text={user?.blog || 'https://google.com'} Element={LinkIcon} link={true} />
+          <InfoRow text={user?.twitter_username || 'https://twitter.com/billgates'} Element={ChatAltIcon} link={true} />
         </div>
 
         {/* right - repos */}

@@ -13,7 +13,7 @@ function RepoRow({ repo }: { repo: IRepo }) {
         <a
           href={html_url}
           target='_blank'
-          className='text-slate-300 hover:text-slate-200 font-bold'
+          className='text-slate-300 hover:text-slate-200 font-bold text-lg'
           rel='noreferrer'>
           {name}
         </a>

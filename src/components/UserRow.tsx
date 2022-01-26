@@ -1,21 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import IUser from '../types/IUser'
 
 function UserRow({ user }: { user: IUser }) {
   const { id, avatar_url, login, type, html_url } = user
   return (
-    <div
-      key={id}
-      className='flex items-center bg-slate-200 mb-2 rounded-md p-3'>
+    <div key={id} className='flex items-center bg-slate-200 mb-2 rounded-md p-3'>
       <div className='flex-item mr-4'>
-        <img
-          className='h-10 w-10 rounded-full'
-          src={avatar_url}
-          alt='User avatar'
-        />
+        <img className='h-10 w-10 rounded-full' src={avatar_url} alt='User avatar' />
       </div>
       <div className='mr-4 flex-item-20 '>
-        <p className='text-sm font-medium text-gray-900'>{login}</p>
+        <Link to={`/user/${login}`} className='text-sm font-medium text-gray-900'>
+          {login}
+        </Link>
       </div>
       <div className='mr-4 flex-item'>
         <p className='text-sm text-gray-500'>{type}</p>

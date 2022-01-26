@@ -20,7 +20,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "comma-dangle": "off",
-    "max-len": ["warning", {"code": 120}]
+    "max-len": [1, {"code": 120}]
   },
   "settings": {
     "react": {
