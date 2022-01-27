@@ -30,20 +30,22 @@ function UserPage() {
   }, [])
 
   return (
-    <div className='w-full container mx-auto h-full flex flex-col items-center'>
+    <div className='w-full container mx-auto h-full flex flex-col items-center px-3'>
       {/* header */}
-      <div className='w-full border-b border-github-border flex py-4'>
+      <div className='w-full border-b border-github-border flex py-4 hidden sm:flex'>
         <p className='text-4xl text-github-primary w-1/3'>Profile</p>
-        <p className='text-4xl text-github-primary w-2/3'>Repositories [{repos.length > 0 ? repos.length : ''}]</p>
+        <p className='text-4xl text-github-primary w-2/3'>Repositories [{repos.length}]</p>
       </div>
       {/* container */}
-      <div className='w-full flex py-3'>
+      <div className='w-full flex py-3 flex-col sm:flex-row'>
         {/* left - profile */}
-        <div className='w-1/3 flex flex-col'>
-          <img className='rounded-full w-4/5 mb-3' src={user?.avatar_url} />
-          <div className='mb-3'>
-            <p className='text-3xl text-github-primary font-semibold'>{user?.name}</p>
-            <p className='text-xl text-github-secondary'>{user?.login}</p>
+        <div className='w-full sm:w-1/3 flex flex-col'>
+          <div className='flex sm:flex-col'>
+            <img className='rounded-full w-1/5 sm:w-4/5 mb-3 mr-3 sm:mr-0' src={user?.avatar_url} />
+            <div className='mb-3 flex flex-col justify-center flex-1'>
+              <p className='text-xl lg:text-3xl text-github-primary font-semibold'>{user?.name}</p>
+              <p className='text-xl text-github-secondary'>{user?.login}</p>
+            </div>
           </div>
           <p className='text-github-primary mb-3'>{user?.bio}</p>
           <a
@@ -60,7 +62,7 @@ function UserPage() {
         </div>
 
         {/* right - repos */}
-        <div className='w-2/3 flex flex-col'>
+        <div className='w-full sm:w-2/3 flex flex-col'>
           {repos.map((repo: IRepo) => (
             <RepoRow repo={repo} key={repo.id} />
           ))}
