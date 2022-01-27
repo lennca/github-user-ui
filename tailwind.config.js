@@ -11,7 +11,8 @@ module.exports = {
           btn: '#238636',
           btn_hover: '#2ea043',
           btn_sec: '#21262d',
-          border: '#30363d'
+          border: '#30363d',
+          blue: '#58a6ff'
         }
       },
     },

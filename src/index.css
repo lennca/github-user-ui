@@ -37,9 +37,8 @@ html, body, #root, .App {
 
 .github-input:focus {
   border-color: #1f6feb;
-  outline: none;
   box-shadow: 0 0 0 3px #0c2d6b;
-  @apply bg-github-bg
+  @apply bg-github-bg outline-none
 }
 
 /* green button */

@@ -13,7 +13,6 @@ function App() {
           <Route path='/user/:username' element={<UserPage />} />
         </Routes>
       </BrowserRouter>
-      ,
     </div>
   )
 }
