@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo-github.png'
 import UserRow from '../components/UserRow'
 import APIService from '../services/APIService'
 import IUser from '../types/IUser'
@@ -26,7 +26,7 @@ function StartPage() {
       {/* image */}
       <div className='w-full flex items-center flex-col mb-4'>
         <img className='w-3/4' src={logo} alt='Logo cat' />
-        <h1 className='text-4xl font-bold text-slate-100'>
+        <h1 className='text-4xl font-bold text-github-primary'>
           Github User Search
         </h1>
       </div>
@@ -37,22 +37,22 @@ function StartPage() {
           type='text'
           name='username'
           id='username'
-          placeholder='Username...'
+          placeholder='Find a GitHub user...'
           value={username}
           onChange={handleOnChange}
-          className='text-white border bg-black py-3 px-4 custom-github-input mr-2 block w-full text-sm border-gray-700 rounded-md focus:outline-none'
+          className='py-3 px-4 mr-2 block w-full text-sm rounded-md github-input'
         />
         {/* submit button */}
         <button
           onClick={handleOnSubmit}
           type='submit'
-          className='w-1/4 items-center justify-center py-2 px-4 text-sm font-medium rounded-md text-white bg-green-600 custom-github-button hover:bg-green-500'>
+          className='w-1/4 py-2 px-4 rounded-md github-btn-green'>
           Search
         </button>
       </div>
       {/* list */}
       <div className='w-3/4'>
-        <p className='text-slate-200 text-2xl mb-4'>
+        <p className='text-github-primary text-2xl mb-4'>
           {users.length} users found
         </p>
         {users.map((user: IUser) => (

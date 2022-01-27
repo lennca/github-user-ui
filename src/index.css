@@ -6,15 +6,6 @@ html, body, #root, .App {
   min-height: 100vh;
 }
 
-.custom-github-button:focus {
-  box-shadow: 0 0 0 3px #00800040; /* green with opacity */
-}
-
-.custom-github-input:focus {
-  box-shadow: 0 0 0 3px #0c2d6b; /* green with opacity */
-  border-color: #1f6feb;
-}
-
 .flex-item {
   flex: 1 1 0px;
 }
@@ -23,6 +14,7 @@ html, body, #root, .App {
   flex: 1 1 20%;
 }
 
+/* gray button */
 .github-btn-sec {
   border: 1px solid rgb(55, 59, 66);
   border-radius: 6px;
@@ -35,28 +27,37 @@ html, body, #root, .App {
   transition-duration: .1s;
 }
 
+/* input text */
 .github-input {
   border: 1px solid #30363d;
   border-radius: 6px;
-  @apply bg-github-bg text-github-primary;
+  background-color: #010409;
+  @apply text-github-primary;
 }
 
-.github-input:hover {
+.github-input:focus {
   border-color: #1f6feb;
   outline: none;
   box-shadow: 0 0 0 3px #0c2d6b;
+  @apply bg-github-bg
+}
+
+/* green button */
+.github-btn-green {
+  background-color: #238636;
+  color: white;
+  transition: 0.2s;
+}
+
+.github-btn-green:hover {
+  background-color: #2ea043;
+}
+
+.github-btn-green:focus {
+  box-shadow: 0 0 0 3px #00800040; /* green with opacity */
 }
 
 /* 
-background: #0d1117
-text primary #c9d1d9
-text secondary #8b949e
-
-button green #238636
-button green:hover #2ea043
-button text-color white!
-
----
 
 border-for rows: border-bottom: 1px solid #30363d
 row-padding: 24px top bottom
