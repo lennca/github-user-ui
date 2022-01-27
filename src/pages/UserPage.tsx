@@ -40,11 +40,12 @@ function UserPage() {
       <div className='w-full flex py-3'>
         {/* left - profile */}
         <div className='w-1/3 flex flex-col'>
-          <img className='rounded-full w-4/5' src={user?.avatar_url} />
-          <p className='text-3xl text-github-primary font-semibold'>{user?.name}</p>
-          <p className='text-xl text-github-secondary mb-3'>{user?.login}</p>
+          <img className='rounded-full w-4/5 mb-3' src={user?.avatar_url} />
+          <div className='mb-3'>
+            <p className='text-3xl text-github-primary font-semibold'>{user?.name}</p>
+            <p className='text-xl text-github-secondary'>{user?.login}</p>
+          </div>
           <p className='text-github-primary mb-3'>{user?.bio}</p>
-          {/* div? */}
           <a
             className='py-1 mb-3 github-btn-sec text-sm w-3/4 text-center'
             href={user?.html_url}
@@ -52,10 +53,10 @@ function UserPage() {
             rel='noreferrer'>
             Github Profile
           </a>
-          <InfoRow text={user?.company || 'Company'} Element={OfficeBuildingIcon} link={false} />
-          <InfoRow text={user?.location || 'Location'} Element={LocationMarkerIcon} link={false} />
-          <InfoRow text={user?.blog || 'https://google.com'} Element={LinkIcon} link={true} />
-          <InfoRow text={user?.twitter_username || 'https://twitter.com/billgates'} Element={ChatAltIcon} link={true} />
+          <InfoRow text={user?.company || '-'} Element={OfficeBuildingIcon} link={false} />
+          <InfoRow text={user?.location || '-'} Element={LocationMarkerIcon} link={false} />
+          <InfoRow text={user?.blog || '-'} Element={LinkIcon} link={true} />
+          <InfoRow text={user?.twitter_username || '-'} Element={ChatAltIcon} link={true} />
         </div>
 
         {/* right - repos */}
