@@ -7,7 +7,13 @@ type Props = {
 }
 
 function InfoRow({ text, Element, link }: Props) {
-  if (!text) return <></>
+  if (!text)
+    return (
+      <div className='flex items-center mb-1'>
+        <Element className='h-4 w-4 mr-1 text-github-primary' />
+        <p className='text-github-primary'>-</p>
+      </div>
+    )
 
   return (
     <div className='flex items-center mb-1'>
