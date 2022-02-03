@@ -1,4 +1,5 @@
 import React from 'react'
+import PrefixUrl from '../utils/PrefixUrl'
 
 type Props = {
   text: string | undefined
@@ -21,7 +22,7 @@ function InfoRow({ text, Element, isLink }: Props) {
       {isLink ? (
         <a
           className='text-github-primary hover:text-github-secondary cursor-pointer'
-          href={text}
+          href={PrefixUrl(text)}
           target='_blank'
           rel='noreferrer'>
           {text}
