@@ -1,34 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import APIService from '../services/APIService'
 import IRepo from '../types/IRepo'
 import IUserInfo from '../types/IUserInfo'
 import { LocationMarkerIcon, LinkIcon, OfficeBuildingIcon, ChatAltIcon } from '@heroicons/react/outline'
 import RepoRow from '../components/RepoRow'
 import InfoRow from '../components/InfoRow'
 import Spinner from '../components/Spinner'
+import HttpService from '../services/HttpService'
 
 function UserPage() {
   const [user, setUser] = useState<IUserInfo | undefined>(undefined)
-  const [repos, setRepos] = useState([])
+  const [repos, setRepos] = useState<IRepo[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
   const { username } = useParams()
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
       if (!username) return
-      //const [response, error]: any = await APIService.findByUsername(username)
-      const values = await Promise.all([APIService.findByUsername(username), APIService.findAllReposByUser(username)])
-      if (values[0][1] || values[1][1] || values[0][0] == null || values[1][0] == null) {
-        const error = values[0][1] || values[1][1]
-        console.log(error)
+      const values = await Promise.all([HttpService.findByUsername(username), HttpService.findAllReposByUser(username)])
+      const [userRes, userError] = values[0]
+      const [repoRes, repoError] = values[1]
+
+      if (userError || repoError || !userRes || !repoRes) {
+        const error = userError || repoError
+        console.error(error)
         return
       }
-      setUser(values[0][0].data)
-      setRepos(values[1][0].data)
+      setUser(userRes)
+      setRepos(repoRes)
       setLoading(false)
     }
-    console.log(process.env.NODE_ENV)
 
     fetchData()
   }, [])

@@ -1,24 +1,24 @@
 import React, { ChangeEvent, useState } from 'react'
 import logo from '../assets/logo-github.png'
 import UserRow from '../components/UserRow'
-import APIService from '../services/APIService'
+import HttpService from '../services/HttpService'
 import IUser from '../types/IUser'
 
 function StartPage() {
   const [username, setUsername] = useState<string>('')
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState<IUser[]>([])
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value)
   }
 
   const handleOnSubmit = async () => {
-    const [response, error]: any = await APIService.searchOnUsername(username)
-    if (error) {
+    const [response, error]: [IUser[] | null, null | unknown] = await HttpService.searchOnUsername(username)
+    if (error || !response) {
       console.log('error', error)
       return
     }
-    setUsers(response.data.items)
+    setUsers(response)
   }
 
   return (

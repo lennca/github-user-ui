@@ -1,4 +1,7 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios'
+import axios, { AxiosInstance } from 'axios'
+import IRepo from '../types/IRepo'
+import IUser from '../types/IUser'
+import IUserInfo from '../types/IUserInfo'
 
 class HttpService {
   url = ''
@@ -30,28 +33,28 @@ class HttpService {
     this.findAllReposByUser = this.findAllReposByUser.bind(this)
   }
 
-  async searchOnUsername(username: string) {
+  async searchOnUsername(username: string): Promise<[IUser[] | null, null | unknown]> {
     try {
       const response = await this.axios.get(`/search/users?q=${username}+in:user`)
-      return [response, null]
+      return [response.data.items, null]
     } catch (error) {
       return [null, error]
     }
   }
 
-  async findByUsername(username: string): Promise<[AxiosResponse<any, any> | null, null | unknown]> {
+  async findByUsername(username: string): Promise<[IUserInfo | null, null | unknown]> {
     try {
       const response = await this.axios.get(`/users/${username}`)
-      return [response, null]
+      return [response.data, null]
     } catch (error) {
       return [null, error]
     }
   }
 
-  async findAllReposByUser(username: string): Promise<[AxiosResponse<any, any> | null, null | unknown]> {
+  async findAllReposByUser(username: string): Promise<[IRepo[] | null, null | unknown]> {
     try {
       const response = await this.axios.get(`${this.url}/users/${username}/repos`)
-      return [response, null]
+      return [response.data, null]
     } catch (error: unknown) {
       return [null, error]
     }
