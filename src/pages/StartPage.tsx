@@ -26,7 +26,7 @@ function StartPage() {
       {/* image */}
       <div className='w-full flex items-center flex-col mb-4'>
         <img className='w-3/4' src={logo} alt='Logo cat' />
-        <h1 className='text-4xl font-bold text-github-primary'>Github User Search</h1>
+        <h1>Github User Search</h1>
       </div>
       {/* input container */}
       <div className='w-full sm:w-3/4 flex mb-4'>
@@ -47,7 +47,7 @@ function StartPage() {
       </div>
       {/* list */}
       <div className='w-full sm:w-3/4'>
-        <p className='text-github-primary text-2xl mb-4'>{users.length} users found</p>
+        <p className='h3 mb-4'>{users.length} users found</p>
         {users.map((user: IUser) => (
           <UserRow user={user} key={user.id} />
         ))}
