@@ -6,89 +6,61 @@ html, body, #root, .App {
   min-height: 100vh;
 }
 
-.flex-item {
-  flex: 1 1 0px;
-}
-
-.flex-item-20 {
-  flex: 1 1 20%;
-}
-
 /* gray button */
 .border-btn {
-  border: 1px solid rgb(55, 59, 66);
-  border-radius: 6px;
+  @apply border border-solid border-grey-5;
 }
 
 .border-btn:hover {
-  border-color: #8b949e;
-  transition-duration: .1s;
+  @apply border-grey-2 transition duration-100;
 }
 
 .github-btn-sec {
-  border: 1px solid rgb(55, 59, 66);
-  border-radius: 6px;
-  @apply bg-github-btn_sec text-github-primary;
+  @apply bg-grey-7 text-grey-1 rounded-md border border-solid border-grey-5;
 }
 
 .github-btn-sec:hover {
-  background-color: #30363d;
-  border-color: #8b949e;
-  transition-duration: .1s;
+  @apply border-grey-2 bg-grey-6 transition duration-100;
 }
 
 /* input text */
 .github-input {
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  background-color: #010409;
-  @apply text-github-primary;
+  @apply text-grey-1 border border-solid border-grey-6 bg-grey-9;
 }
 
 .github-input:focus {
-  border-color: #1f6feb;
-  box-shadow: 0 0 0 3px #0c2d6b;
-  @apply bg-github-bg outline-none
+  @apply bg-grey-8 outline-none border-blue-medium shadow-blue;
 }
 
 /* green button */
 .github-btn-green {
-  background-color: #238636;
-  color: white;
-  transition: 0.2s;
+  @apply bg-green-medium transition duration-200 text-white;
 }
 
 .github-btn-green:hover {
-  background-color: #2ea043;
+  @apply bg-green-light;
 }
 
 .github-btn-green:focus {
-  box-shadow: 0 0 0 3px #00800040; /* green with opacity */
+  @apply shadow-green;
 }
 
-/* 
-
-border-for rows: border-bottom: 1px solid #30363d
-row-padding: 24px top bottom
-
-*/
-
 .spin {
-  border: 4px solid #238636; /* Light grey */
-  border-top: 4px solid transparent; /* Blue */
+  border: 4px solid #238636;
+  border-top: 4px solid transparent;
 }
 
 
 
 /* Default tag styling */
 h1, .h1 {
-  @apply text-4xl font-bold text-github-primary;
+  @apply text-4xl font-bold text-grey-1;
 }
 
 h3, .h3 {
-  @apply text-2xl text-github-primary;
+  @apply text-2xl text-grey-1;
 }
 
 p, .p {
-  @apply text-github-primary;
+  @apply text-grey-1;
 }

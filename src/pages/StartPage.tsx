@@ -15,7 +15,7 @@ function StartPage() {
   const handleOnSubmit = async () => {
     const [response, error]: [IUser[] | null, null | unknown] = await HttpService.searchOnUsername(username)
     if (error || !response) {
-      console.log('error', error)
+      console.error(error)
       return
     }
     setUsers(response)
@@ -23,14 +23,11 @@ function StartPage() {
 
   return (
     <div className='w-full sm:w-3/4 container mx-auto h-full flex flex-col items-center px-3'>
-      {/* image */}
       <div className='w-full flex items-center flex-col mb-4'>
         <img className='w-3/4' src={logo} alt='Logo cat' />
         <h1>Github User Search</h1>
       </div>
-      {/* input container */}
       <div className='w-full sm:w-3/4 flex mb-4'>
-        {/* input */}
         <input
           type='text'
           name='username'
@@ -38,14 +35,12 @@ function StartPage() {
           placeholder='Find a GitHub user...'
           value={username}
           onChange={handleOnChange}
-          className='py-3 px-4 mr-2 block w-full text-sm rounded-md github-input'
+          className='py-3 px-4 mr-2 block w-full text-sm github-input rounded-md'
         />
-        {/* submit button */}
         <button onClick={handleOnSubmit} type='submit' className='w-1/4 py-2 px-4 rounded-md github-btn-green'>
           Search
         </button>
       </div>
-      {/* list */}
       <div className='w-full sm:w-3/4'>
         <p className='h3 mb-4'>{users.length} users found</p>
         {users.map((user: IUser) => (

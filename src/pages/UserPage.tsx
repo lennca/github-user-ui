@@ -36,8 +36,7 @@ function UserPage() {
 
   return (
     <div className='w-full container mx-auto h-full flex flex-col items-center px-3'>
-      {/* header */}
-      <div className='w-full border-b border-github-border py-4 hidden sm:flex mb-3'>
+      <div className='w-full border-b border-grey-6 py-4 hidden sm:flex mb-3'>
         <p className='h1 !font-normal w-1/3'>Profile</p>
         <p className='h1 !font-normal w-2/3'>Repositories [{repos.length}]</p>
       </div>
@@ -45,15 +44,14 @@ function UserPage() {
         <Spinner />
       ) : (
         <div className='w-full flex flex-col sm:flex-row'>
-          {/* left - profile */}
           <div className='w-full sm:w-1/3 flex flex-col'>
-            <p className='h1 !font-normal border-b border-github-border py-4 sm:hidden mb-3'>Profile</p>
+            <p className='h1 !font-normal border-b border-grey-6 py-4 sm:hidden mb-3'>Profile</p>
 
             <div className='flex sm:flex-col'>
               <img className='rounded-full w-1/5 sm:w-4/5 mb-3 mr-3 sm:mr-0' src={user?.avatar_url} />
               <div className='mb-3 flex flex-col justify-center flex-1'>
                 <p className='text-xl lg:text-3xl font-semibold'>{user?.name}</p>
-                <p className='text-xl text-github-secondary'>{user?.login}</p>
+                <p className='text-xl text-grey-2'>{user?.login}</p>
               </div>
             </div>
 
@@ -70,9 +68,8 @@ function UserPage() {
             <InfoRow text={user?.twitter_username} Element={ChatAltIcon} isLink />
           </div>
 
-          {/* right - repos */}
           <div className='w-full sm:w-2/3 flex flex-col'>
-            <p className='h1 !font-normal border-b border-github-border py-4 sm:hidden mb-3'>
+            <p className='h1 !font-normal border-b border-grey-6 py-4 sm:hidden mb-3'>
               Repositories [{repos.length}]
             </p>
 
