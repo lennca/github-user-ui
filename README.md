@@ -8,9 +8,9 @@ An alternative GitHub user search UI built with React/TypeScript and Tailwind. (
 
 Ensure that you have the following installed:
 
-* Node.js v14.15.4
-* npm v8.1.3
-
+* Node.js v16.13.2
+* npm v8.1.2
+* Docker v20.10.3 (if want to containerize application)
 
 ### Clone and install
 
@@ -60,6 +60,15 @@ Start the application.
 ```bash
 npm start
 ```
+
+## Run app as a container
+
+To run app in a container, set environment as defined above (Demo/Local). Then run docker start script.
+
+```bash
+sh ./docker_start.sh
+```
+
 
 ## Production build
 
