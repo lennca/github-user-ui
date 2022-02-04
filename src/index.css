@@ -6,50 +6,32 @@ html, body, #root, .App {
   min-height: 100vh;
 }
 
-/* gray button */
-.border-btn {
-  @apply border border-solid border-grey-5;
-}
-
-.border-btn:hover {
-  @apply border-grey-2 transition duration-100;
-}
-
-.github-btn-sec {
-  @apply bg-grey-7 text-grey-1 rounded-md border border-solid border-grey-5;
-}
-
-.github-btn-sec:hover {
-  @apply border-grey-2 bg-grey-6 transition duration-100;
-}
-
-/* input text */
-.github-input {
-  @apply text-grey-1 border border-solid border-grey-6 bg-grey-9;
-}
-
-.github-input:focus {
-  @apply bg-grey-8 outline-none border-blue-medium shadow-blue;
-}
-
-/* green button */
-.github-btn-green {
-  @apply bg-green-medium transition duration-200 text-white;
-}
-
-.github-btn-green:hover {
-  @apply bg-green-light;
-}
-
-.github-btn-green:focus {
-  @apply shadow-green;
-}
-
+/* loader */
 .spin {
   border: 4px solid #238636;
   border-top: 4px solid transparent;
 }
 
+/* components */
+.btn-grey {
+  @apply py-1 text-sm text-center border rounded-md bg-grey-7 text-grey-1 border-grey-5 sm:w-3/4;
+}
+
+.btn-grey:hover {
+  @apply transition duration-100 border-grey-2 bg-grey-6;
+}
+
+.btn-green {
+  @apply w-1/4 px-4 text-white transition duration-200 rounded-md bg-green-medium hover:bg-green-light focus:shadow-green;
+}
+
+.input-text {
+  @apply w-full px-4 py-3 text-sm border border-solid rounded-md text-grey-1 border-grey-6 bg-grey-9;
+}
+
+.input-text:focus {
+  @apply focus:bg-grey-8 focus:outline-none focus:border-blue-medium focus:shadow-blue;
+}
 
 
 /* Default tag styling */

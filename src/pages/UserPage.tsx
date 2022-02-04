@@ -35,43 +35,40 @@ function UserPage() {
   }, [])
 
   return (
-    <div className='w-full container mx-auto h-full flex flex-col items-center px-3'>
-      <div className='w-full border-b border-grey-6 py-4 hidden sm:flex mb-3'>
+    <div className='container flex flex-col items-center w-full h-full px-3 mx-auto'>
+      <div className='hidden w-full py-4 border-b border-grey-6 sm:flex'>
         <p className='h1 !font-normal w-1/3'>Profile</p>
         <p className='h1 !font-normal w-2/3'>Repositories [{repos.length}]</p>
       </div>
       {loading ? (
         <Spinner />
       ) : (
-        <div className='w-full flex flex-col sm:flex-row'>
-          <div className='w-full sm:w-1/3 flex flex-col'>
-            <p className='h1 !font-normal border-b border-grey-6 py-4 sm:hidden mb-3'>Profile</p>
+        <div className='flex flex-col w-full sm:flex-row'>
+          <div className='flex flex-col w-full space-y-3 sm:w-1/3'>
+            <p className='h1 !font-normal border-b border-grey-6 py-4 sm:hidden'>Profile</p>
 
             <div className='flex sm:flex-col'>
-              <img className='rounded-full w-1/5 sm:w-4/5 mb-3 mr-3 sm:mr-0' src={user?.avatar_url} />
-              <div className='mb-3 flex flex-col justify-center flex-1'>
-                <p className='text-xl lg:text-3xl font-semibold'>{user?.name}</p>
+              <img className='w-1/5 mb-3 mr-3 rounded-full sm:w-4/5 sm:mr-0' src={user?.avatar_url} />
+              <div className='flex flex-col justify-center flex-1'>
+                <p className='text-xl font-semibold lg:text-3xl'>{user?.name}</p>
                 <p className='text-xl text-grey-2'>{user?.login}</p>
               </div>
             </div>
 
-            <a
-              className='py-1 mb-3 github-btn-sec text-sm sm:w-3/4 text-center'
-              href={user?.html_url}
-              target='_blank'
-              rel='noreferrer'>
+            <a className='btn-grey' href={user?.html_url} target='_blank' rel='noreferrer'>
               Github Profile
             </a>
-            <InfoRow text={user?.company} Element={OfficeBuildingIcon} isLink={false} />
-            <InfoRow text={user?.location} Element={LocationMarkerIcon} isLink={false} />
-            <InfoRow text={user?.blog} Element={LinkIcon} isLink />
-            <InfoRow text={user?.twitter_username} Element={ChatAltIcon} isLink />
+
+            <div id='info-container'>
+              <InfoRow text={user?.company} Element={OfficeBuildingIcon} isLink={false} />
+              <InfoRow text={user?.location} Element={LocationMarkerIcon} isLink={false} />
+              <InfoRow text={user?.blog} Element={LinkIcon} isLink />
+              <InfoRow text={user?.twitter_username} Element={ChatAltIcon} isLink />
+            </div>
           </div>
 
-          <div className='w-full sm:w-2/3 flex flex-col'>
-            <p className='h1 !font-normal border-b border-grey-6 py-4 sm:hidden mb-3'>
-              Repositories [{repos.length}]
-            </p>
+          <div className='flex flex-col w-full sm:w-2/3'>
+            <p className='h1 !font-normal border-b border-grey-6 py-4 mb-3 sm:hidden'>Repositories [{repos.length}]</p>
 
             {repos.map((repo: IRepo) => (
               <RepoRow repo={repo} key={repo.id} />

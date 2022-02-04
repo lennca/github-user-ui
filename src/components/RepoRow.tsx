@@ -11,7 +11,7 @@ function RepoRow({ repo }: { repo: IRepo }) {
         <a
           href={html_url}
           target='_blank'
-          className='text-blue-light hover:underline font-bold text-lg'
+          className='text-blue-light font-bold text-lg hover:underline'
           rel='noreferrer'>
           {name}
         </a>
@@ -21,14 +21,14 @@ function RepoRow({ repo }: { repo: IRepo }) {
       </div>
 
       <div className='flex justify-between items-center'>
-        <div className='flex'>
+        <div className='flex space-x-3'>
           {language && (
-            <div className='flex mr-3 items-center'>
+            <div className='flex items-center'>
               <CogIcon className='h-4 w-4 text-slate-500 mr-1' />
               <p className='text-xs text-grey-2'>{language}</p>
             </div>
           )}
-          <div className='flex mr-3 items-center'>
+          <div className='flex items-center'>
             <ExclamationCircleIcon className='text-yellow-600 h-4 w-4 mr-1' />
             <p className='text-xs text-grey-2'>{open_issues}</p>
           </div>
