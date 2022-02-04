@@ -1,4 +1,5 @@
 import React, { ComponentProps, FunctionComponent } from 'react'
+
 import PrefixUrl from '../utils/PrefixUrl'
 
 type Props = {
@@ -11,7 +12,7 @@ function InfoRow({ text, Element, isLink }: Props) {
   if (!text) {
     return (
       <div className='flex items-center mb-1 text-grey-1'>
-        <Element className='h-4 w-4 mr-1' />
+        <Element className='w-4 h-4 mr-1' />
         <p>-</p>
       </div>
     )
@@ -19,9 +20,9 @@ function InfoRow({ text, Element, isLink }: Props) {
 
   return (
     <div className='flex items-center mb-1 text-grey-1'>
-      <Element className='h-4 w-4 mr-1' />
+      <Element className='w-4 h-4 mr-1' />
       {isLink ? (
-        <a className='hover:text-grey-2 cursor-pointer' href={PrefixUrl(text)} target='_blank' rel='noreferrer'>
+        <a className='cursor-pointer hover:text-grey-2' href={PrefixUrl(text)} target='_blank' rel='noreferrer'>
           {text}
         </a>
       ) : (

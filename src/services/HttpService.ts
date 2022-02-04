@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
+
 import IRepo from '../types/IRepo'
 import IUser from '../types/IUser'
 import IUserInfo from '../types/IUserInfo'

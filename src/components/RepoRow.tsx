@@ -1,6 +1,8 @@
 import React from 'react'
-import IRepo from '../types/IRepo'
+
 import { CogIcon, ExclamationCircleIcon } from '@heroicons/react/outline'
+
+import IRepo from '../types/IRepo'
 
 function RepoRow({ repo }: { repo: IRepo }) {
   const { html_url, name, license, language, open_issues, updated_at } = repo
@@ -11,25 +13,25 @@ function RepoRow({ repo }: { repo: IRepo }) {
         <a
           href={html_url}
           target='_blank'
-          className='text-blue-light font-bold text-lg hover:underline'
+          className='text-lg font-bold text-blue-light hover:underline'
           rel='noreferrer'>
           {name}
         </a>
-        <span className='px-2 flex justify-center items-center text-xs rounded-full bg-green-100 text-green-800'>
+        <span className='flex items-center justify-center px-2 text-xs text-green-800 bg-green-100 rounded-full'>
           {license ? `${license.name}` : 'none'}
         </span>
       </div>
 
-      <div className='flex justify-between items-center'>
+      <div className='flex items-center justify-between'>
         <div className='flex space-x-3'>
           {language && (
             <div className='flex items-center'>
-              <CogIcon className='h-4 w-4 text-slate-500 mr-1' />
+              <CogIcon className='w-4 h-4 mr-1 text-slate-500' />
               <p className='text-xs text-grey-2'>{language}</p>
             </div>
           )}
           <div className='flex items-center'>
-            <ExclamationCircleIcon className='text-yellow-600 h-4 w-4 mr-1' />
+            <ExclamationCircleIcon className='w-4 h-4 mr-1 text-yellow-600' />
             <p className='text-xs text-grey-2'>{open_issues}</p>
           </div>
         </div>

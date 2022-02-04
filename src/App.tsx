@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import StartPage from './pages/StartPage'
 import UserPage from './pages/UserPage'
 

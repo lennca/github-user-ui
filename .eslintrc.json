@@ -7,7 +7,8 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "prettier",
+    "plugin:import/warnings"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -17,14 +18,47 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "import"],
   "rules": {
     "comma-dangle": "off",
-    "max-len": [1, {"code": 120}]
+    "max-len": [1, {"code": 120}],
+    "import/no-unresolved": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "internal", "external"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   },
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+
+        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+
+        // use <root>/path/to/folder/tsconfig.json
+        "project": "./"
+      }
     }
   }
 }

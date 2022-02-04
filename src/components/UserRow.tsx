@@ -1,16 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import IUser from '../types/IUser'
+
 import { ExternalLinkIcon } from '@heroicons/react/outline'
+import { Link } from 'react-router-dom'
+
+import IUser from '../types/IUser'
 
 function UserRow({ user }: { user: IUser }) {
   const { id, avatar_url, login, type, html_url } = user
   return (
     <div
       key={id}
-      className='flex items-center mb-2 rounded-md p-3 space-x-4 border border-solid border-grey-5 hover:border-grey-2'>
+      className='flex items-center p-3 mb-2 space-x-4 border border-solid rounded-md border-grey-5 hover:border-grey-2'>
       <div className='flex-1'>
-        <img className='h-10 w-10 rounded-full' src={avatar_url} alt='User avatar' />
+        <img className='w-10 h-10 rounded-full' src={avatar_url} alt='User avatar' />
       </div>
       <div className='flex-20 '>
         <Link to={`/user/${login}`} className='font-medium text-white hover:underline'>
@@ -20,14 +22,14 @@ function UserRow({ user }: { user: IUser }) {
       <div className='flex-1'>
         <p>{type}</p>
       </div>
-      <div className='flex-20 text-right flex justify-end pr-4'>
+      <div className='flex justify-end pr-4 text-right flex-20'>
         <a
           target='_blank'
           rel='noreferrer'
           href={html_url}
           className='flex items-center text-blue-light hover:underline'>
           GitHub Profile
-          <ExternalLinkIcon className='h-4 w-4' />
+          <ExternalLinkIcon className='w-4 h-4' />
         </a>
       </div>
     </div>
